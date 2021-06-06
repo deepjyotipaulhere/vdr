@@ -2,21 +2,13 @@ from django.db import models
 import datetime
 # Create your models here.
 
-
-class User(models.Model):
-    name = models.CharField(max_length=50)
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-
-    def __str__(self) -> str:
-        return self.name
-
-
 class FileCategory(models.Model):
     categoryName = models.CharField(max_length=100)
 
     def __str__(self) -> str:
         return self.categoryName
+    class Meta:
+        verbose_name_plural = "File Categories"
 
 
 class FileSubcategory(models.Model):
@@ -25,6 +17,8 @@ class FileSubcategory(models.Model):
 
     def __str__(self) -> str:
         return self.subcatName
+    class Meta:
+        verbose_name_plural = "File Subcategories"
 
 
 class Files(models.Model):
@@ -32,6 +26,9 @@ class Files(models.Model):
     file = models.FileField(upload_to='')
     uploaded_on = models.DateTimeField(
         auto_now_add=True)
+    
+    class Meta:
+        verbose_name_plural = "Files"
 
     def __str__(self) -> str:
         return str(self.subcat)

@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 PROJECT_CLIENT = 'FSNL'
 """
@@ -28,17 +29,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 MEDIA_ROOT = 'media/'
-MEDIA_URL = ""
+MEDIA_URL = "/media/"
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'groupadmin_users',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'web'
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -56,9 +58,7 @@ ROOT_URLCONF = 'vdr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'templates/',
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'vdr.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR/'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
         # 'NAME': PROJECT_CLIENT+'_VDR',
         # 'HOST':'localhost',
         # 'USER': 'sa',
