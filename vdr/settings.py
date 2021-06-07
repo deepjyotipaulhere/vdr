@@ -35,7 +35,7 @@ MEDIA_URL = "/media/"
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'groupadmin_users',
+    # 'groupadmin_users',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
